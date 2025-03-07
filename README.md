@@ -1,29 +1,45 @@
 # Bonfire_TDMActivity
 Lab Activity for our Software Implementation and Management
 
-## Identified Technical Debt
-Poor Naming Conventions
+# Identified Technical Debt & Improvements
 
-The function name compute_deductions is misleading since it prints results rather than returning them.
-Variable names like sss, philhealth, pagibig, and tax could be clearer, e.g., sss_contribution, philhealth_contribution, etc.
-Lack of Modular Functions
+## 1. Poor Naming Conventions  
+- **Issue:** The function name `compute_deductions` was misleading as it printed results instead of returning them.  
+- **Fix:** Renamed functions and variables to accurately describe their purpose.  
+  - Example: `sss` → `sss_contribution`, `pagibig` → `pagibig_contribution`, etc.  
 
-The function mixes calculation and output, making it harder to reuse.
-Better structure would involve separate functions for computing deductions and displaying results.
-Hardcoded Values Instead of Dynamic Inputs
+## 2. Lack of Modular Functions  
+- **Issue:** Salary calculation and printing were combined in a single function.  
+- **Fix:** Separated logic into individual functions:  
+  - `compute_deductions()` – Calculates deductions  
+  - `display_breakdown()` – Displays results  
 
-sss = 1200, pagibig = 100, and tax = 1875 are fixed values. These should be configurable or computed dynamically.
-Tax, in particular, is usually based on salary brackets, not a fixed value.
-No Error Handling
+## 3. Hardcoded Values Instead of Dynamic Inputs  
+- **Issue:** Deductions like SSS (₱1200), Pag-IBIG (₱100), and Tax (₱1875) were hardcoded.  
+- **Fix:**  
+  - Replaced fixed values with constants.  
+  - Implemented dynamic tax computation instead of using a fixed tax value.
 
-No validation for user input (e.g., negative salary values or non-numeric input).
-Potential runtime error if the user enters invalid data.
-Code Duplication
+## 4. No Error Handling  
+- **Issue:** No validation for invalid salary inputs (negative numbers, non-numeric values).  
+- **Fix:**  
+  - Added input validation to ensure salary input is numeric and positive.  
+  - Implemented exception handling for robust user input processing.  
 
-salary = float(input("Enter your monthly salary: ")) is written outside the function, leading to poor function encapsulation.
-Printing results within the function makes it hard to reuse elsewhere.
+## 5. Code Duplication  
+- **Issue:** Salary input was handled outside the function, reducing encapsulation.  
+- **Fix:**  
+  - Encapsulated salary processing logic into a `SalaryCalculator` class.  
+  - Reduced redundancy by ensuring input processing is handled in a single place.  
 
+## 6. Converted to Object-Oriented Programming (OOP)  
+- **Issue:** Code was procedural, making future scalability difficult.  
+- **Fix:**  
+  - Introduced a `SalaryCalculator` class to encapsulate related logic.  
+  - Enhanced modularity and maintainability.  
 
-## Technical Debt Identified Summary
-- Refactoring needed for better modularity.
-- Optimize database queries to improve performance.
+## Final Improvements  
+✅ **Improved Code Readability:** Implemented proper formatting and comments.  
+✅ **Converted to Object-Oriented Programming (OOP):** Introduced a `SalaryCalculator` class to enhance modularity.  
+✅ **Enhanced User Experience:** Improved output formatting for better clarity.  
+✅ **Error Handling & Input Validation:** Ensured the program does not crash due to invalid inputs.    
