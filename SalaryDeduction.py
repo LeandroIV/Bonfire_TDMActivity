@@ -9,6 +9,9 @@ class SalaryCalculator:
 
     def __init__(self, gross_salary):
         """Initialize with gross salary."""
+        if not isinstance(gross_salary, (int, float)) or gross_salary <= 0:
+            raise ValueError("Gross salary must be a positive number.")
+        
         self.gross_salary = gross_salary
         self.deductions = {}
         self.net_salary = 0
@@ -34,20 +37,25 @@ class SalaryCalculator:
         print(f"{'Net Salary:':<25} {self.net_salary:>10,.2f}\n")
 
 
+def get_valid_salary():
+    """Prompt user for a valid salary input."""
+    while True:
+        try:
+            salary_input = input("Enter your monthly salary: ").strip()
+            salary = float(salary_input)
+            if salary <= 0:
+                raise ValueError("Salary must be a positive number.")
+            return salary
+        except ValueError as error:
+            print(f"Invalid input: {error}. Please enter a valid positive number.")
+
+
 def main():
     """Main function to get user input and calculate salary deductions."""
-    try:
-        monthly_salary = float(input("Enter your monthly salary: "))
-        if monthly_salary < 0:
-            raise ValueError("Salary cannot be negative.")
-
-        # Create an instance of SalaryCalculator
-        salary_calculator = SalaryCalculator(monthly_salary)
-        salary_calculator.compute_deductions()
-        salary_calculator.display_breakdown()
-
-    except ValueError as error:
-        print(f"Invalid input: {error}")
+    monthly_salary = get_valid_salary()
+    salary_calculator = SalaryCalculator(monthly_salary)
+    salary_calculator.compute_deductions()
+    salary_calculator.display_breakdown()
 
 
 if __name__ == "__main__":
