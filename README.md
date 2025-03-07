@@ -43,3 +43,10 @@ Lab Activity for our Software Implementation and Management
 ✅ **Converted to Object-Oriented Programming (OOP):** Introduced a `SalaryCalculator` class to enhance modularity.  
 ✅ **Enhanced User Experience:** Improved output formatting for better clarity.  
 ✅ **Error Handling & Input Validation:** Ensured the program does not crash due to invalid inputs.    
+
+
+## Challenges & Solutions
+- The challenged we've experienced was that me as the lead developer had changes in our readme and didn't push it. Then our documenter updated the readme and pushed it.
+I forgot my changes in readme and proceed to refractoring but then I noticed that I didnt also pushed the initial commit and I had to do it again. After that, errors shpwed up
+saying "error: Pulling is not possible because you have unmerged files." the file became red text.
+- For our solution, I had to fix the merge conflict by accepting both changes and then commited and push it again.
