@@ -1,6 +1,7 @@
 # Bonfire_TDMActivity
 Lab Activity for our Software Implementation and Management
-Identified Technical Debt
+
+## Identified Technical Debt
 Poor Naming Conventions
 
 The function name compute_deductions is misleading since it prints results rather than returning them.
@@ -21,3 +22,8 @@ Code Duplication
 
 salary = float(input("Enter your monthly salary: ")) is written outside the function, leading to poor function encapsulation.
 Printing results within the function makes it hard to reuse elsewhere.
+
+
+## Technical Debt Identified Summary
+- Refactoring needed for better modularity.
+- Optimize database queries to improve performance.
